@@ -13,5 +13,89 @@
 
     <!-- Add new DAOs here -->
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--VendorManager-START-->
+    <bean id="vendorManager" class="com.redhat.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="com.redhat.model.Vendor"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!--VendorManager-END-->
+
+    <!--ProductManager-START-->
+    <bean id="productManager" class="com.redhat.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="com.redhat.model.Product"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!--ProductManager-END-->
+
+    
+
+    
+
+    
+
+    <!--HwCertManager-START-->
+    <bean id="hwCertManager" class="com.redhat.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="com.redhat.model.HwCert"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!--HwCertManager-END-->
+
     <!-- Add new Managers here -->
 </beans>

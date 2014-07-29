@@ -50,5 +50,23 @@
                 <arg key="user.password"/>
             </field>
         </form>
+        
+        
+        <!--Product-START-->
+        <form name="product">
+            <field property="majorVersion" depends="required">
+                <arg key="product.majorVersion"/>
+            </field>
+            <field property="minorVersion" depends="required">
+                <arg key="product.minorVersion"/>
+            </field>
+            <field property="name" depends="required">
+                <arg key="product.name"/>
+            </field>
+        </form>
+        <!--Product-END-->
+        
+        
+        
     </formset>
 </form-validation>

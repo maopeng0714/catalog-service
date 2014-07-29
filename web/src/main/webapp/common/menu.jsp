@@ -12,6 +12,14 @@
     <menu:displayMenu name="UserMenu"/>
     <menu:displayMenu name="AdminMenu"/>
     <menu:displayMenu name="Logout"/>
+    
+    
+    <!--Product-START-->
+    <menu:displayMenu name="ProductMenu"/>
+    <!--Product-END-->
+    
+    
+    
 </ul>
 </div>
 </menu:useMenuDisplayer>

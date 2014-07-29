@@ -8,5 +8,12 @@
     <session-factory>
         <mapping class="com.redhat.model.User"/>
         <mapping class="com.redhat.model.Role"/>
+
+        <mapping class="com.redhat.model.Product"/>
+        <mapping class="com.redhat.model.HwCert"/>
+        <mapping class="com.redhat.model.HwArch"/>
+        <mapping class="com.redhat.model.Vendor"/>
+        <mapping class="com.redhat.model.HwMake"/>
+        <mapping class="com.redhat.model.HwSpec"/>
     </session-factory>
 </hibernate-configuration>

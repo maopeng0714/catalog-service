@@ -119,4 +119,129 @@
             <value description="role_id">-2</value>
         </row>
     </table>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--Vendor-START-->
+    <table name="vendor">
+        <column>id</column>
+        <column>name</column>
+    <row>
+        <value description="id">-1</value>
+        <value description="name">MuPiIqDvRuXnImDxBcHtRuPkWuAmFg</value>
+    </row>
+    <row>
+        <value description="id">-2</value>
+        <value description="name">CzUnBaEiIkJuFlEnTaTiZyNmHqFoBw</value>
+    </row>
+    <row>
+        <value description="id">-3</value>
+        <value description="name">XwMwDkRzPtYuJhJhXfLdZmXlQoMyAp</value>
+    </row>
+    </table>
+    <!--Vendor-END-->
+    <!--Product-START-->
+    <table name="product">
+        <column>id</column>
+        <column>majorVersion</column>
+        <column>minorVersion</column>
+        <column>name</column>
+    <row>
+        <value description="id">-1</value>
+        <value description="majorVersion">1185830221</value>
+        <value description="minorVersion">136363702</value>
+        <value description="name">GeCuOkXqLtYuDlKqPcMnQsKpMiKkLa</value>
+    </row>
+    <row>
+        <value description="id">-2</value>
+        <value description="majorVersion">77847030</value>
+        <value description="minorVersion">237687004</value>
+        <value description="name">KbQyZbFvQyWrVcUvMiGxBwLaNnTpFv</value>
+    </row>
+    <row>
+        <value description="id">-3</value>
+        <value description="majorVersion">412177224</value>
+        <value description="minorVersion">280229367</value>
+        <value description="name">SnHsIoVaDdLrAjOeGbBkZvQaBmLnMd</value>
+    </row>
+    </table>
+    <!--Product-END-->
+    
+    
+    
+    <!--HwCert-START-->
+    <table name="cert">
+        <column>arch_id</column>
+        <column>make_id</column>
+        <column>model_id</column>
+        <column>spec_id</column>
+    <row>
+        <value description="arch_id">-1</value>
+        <value description="make_id">-1</value>
+        <value description="model_id">-1</value>
+        <value description="spec_id">-1</value>
+    </row>
+    <row>
+        <value description="arch_id">-2</value>
+        <value description="make_id">-2</value>
+        <value description="model_id">-2</value>
+        <value description="spec_id">-2</value>
+    </row>
+    <row>
+        <value description="arch_id">-3</value>
+        <value description="make_id">-3</value>
+        <value description="model_id">-3</value>
+        <value description="spec_id">-3</value>
+    </row>
+    </table>
+    <!--HwCert-END-->
 </dataset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

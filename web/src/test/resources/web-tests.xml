@@ -24,7 +24,7 @@
 
     <!-- runs all targets -->
     <target name="run-all-tests" 
-        depends="Login,Logout,PasswordHint,Signup,UserTests,StaticPages,WebServices,DWR,FileUpload"
+        depends="Login,Logout,PasswordHint,Signup,UserTests,StaticPages,WebServices,DWR,FileUpload,ProductTests"
         description="Call and executes all test cases (targets)"/>
     
     <!-- runs user-related tests -->
@@ -255,4 +255,115 @@
             </steps>
         </webtest>
     </target>
+    
+    
+    <!--Product-START-->
+    <!-- runs product-related tests -->
+    <target name="ProductTests"
+            depends="SearchProducts,EditProduct,SaveProduct,AddProduct,DeleteProduct"
+            description="Call and executes all product test cases (targets)">
+        <echo>Successfully ran all Product UI tests!</echo>
+    </target>
+
+    <!-- Verify the products list screen displays without errors -->
+    <target name="SearchProducts" description="Tests search for and displaying all products">
+        <webtest name="searchProducts">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Product link" url="/products"/>
+                <verifytitle description="we should see the productList title"
+                    text=".*${productList.title}.*" regex="true"/>
+                <setinputfield description="set search term" name="q" value="*"/>
+                <clickbutton label="${button.search}" description="Click Search"/>
+                <verifytitle description="we should see the productList title"
+                    text=".*${productList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit product screen displays without errors -->
+    <target name="EditProduct" description="Tests editing an existing Product's information">
+        <webtest name="editProduct">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View Product List" url="/products"/>
+                <clicklink label="-1" description="Click edit link"/>
+                <verifytitle description="we should see the productDetail title"
+                    text=".*${productDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a product and then save -->
+    <target name="SaveProduct" description="Tests editing and saving a product">
+        <webtest name="saveProduct">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Product link" url="/productform?id=-1"/>
+                <verifytitle description="we should see the productDetail title"
+                    text=".*${productDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set majorVersion" name="majorVersion" value="841755642"/>
+                <setInputField description="set minorVersion" name="minorVersion" value="678066191"/>
+                <setInputField description="set name" name="name" value="GpTwUdZeDkLjEtWhSwZnVlMrShAcSdSkGgHcKxOuVpBuJsKsHuSbQcAqJnAiLrHjNsPhYsKxHmFjXjUj"/>
+
+                <clickbutton label="${button.save}" description="Click Save"/>
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${productDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${product.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Product -->
+    <target name="AddProduct" description="Adds a new Product">
+        <webtest name="addProduct">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/productform"/>
+                <verifytitle description="we should see the productDetail title"
+                    text=".*${productDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set majorVersion" name="majorVersion" value="780244676"/>
+                <setInputField description="set minorVersion" name="minorVersion" value="1485561932"/>
+                <setInputField description="set name" name="name" value="LfNsTiQwQnKvCiYaBiAnIdRpUgAtWhHbWqUwJbYsNePaAoSvSuChNpKzAwXwBxOsXwMrJtPaWaAnFqAj"/>
+
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+                <verifytitle description="Product List appears if save successful"
+                    text=".*${productList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${product.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing product -->
+    <target name="DeleteProduct" description="Deletes existing Product">
+        <webtest name="deleteProduct">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Product link" url="/productform?id=-1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Product List" text=".*${productList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${product.deleted}"/>
+            </steps>
+        </webtest>
+    </target>    <!--Product-END-->
+    
+    
+    
 </project>
+
+
+
+
+
+
