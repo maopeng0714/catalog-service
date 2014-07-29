@@ -38,7 +38,7 @@
     <div class="form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
     </spring:bind>
         <appfuse:label key="product.name" styleClass="control-label"/>
-        <form:input cssClass="form-control" path="name" id="name"  maxlength="80"/>
+        <form:input cssClass="form-control" path="name" id="name"  maxlength="30"/>
         <form:errors path="name" cssClass="help-block"/>
     </div>
 

@@ -24,7 +24,7 @@
 
     <!-- runs all targets -->
     <target name="run-all-tests" 
-        depends="Login,Logout,PasswordHint,Signup,UserTests,StaticPages,WebServices,DWR,FileUpload,ProductTests"
+        depends="Login,Logout,PasswordHint,Signup,UserTests,StaticPages,WebServices,DWR,FileUpload,ProductTests,VendorTests,HwSpecTests,HwArchTests,HwMakeTests,HwArchTests,HwModelTests,ProductTests"
         description="Call and executes all test cases (targets)"/>
     
     <!-- runs user-related tests -->
@@ -257,6 +257,491 @@
     </target>
     
     
+    
+    
+    
+    
+    <!--HwModel-START-->
+    <!-- runs hwModel-related tests -->
+    <target name="HwModelTests"
+            depends="SearchHwModels,EditHwModel,SaveHwModel,AddHwModel,DeleteHwModel"
+            description="Call and executes all hwModel test cases (targets)">
+        <echo>Successfully ran all HwModel UI tests!</echo>
+    </target>
+
+    <!-- Verify the hwModels list screen displays without errors -->
+    <target name="SearchHwModels" description="Tests search for and displaying all hwModels">
+        <webtest name="searchHwModels">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View HwModel link" url="/hwModels"/>
+                <verifytitle description="we should see the hwModelList title"
+                    text=".*${hwModelList.title}.*" regex="true"/>
+                <setinputfield description="set search term" name="q" value="*"/>
+                <clickbutton label="${button.search}" description="Click Search"/>
+                <verifytitle description="we should see the hwModelList title"
+                    text=".*${hwModelList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit hwModel screen displays without errors -->
+    <target name="EditHwModel" description="Tests editing an existing HwModel's information">
+        <webtest name="editHwModel">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View HwModel List" url="/hwModels"/>
+                <clicklink label="-1" description="Click edit link"/>
+                <verifytitle description="we should see the hwModelDetail title"
+                    text=".*${hwModelDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a hwModel and then save -->
+    <target name="SaveHwModel" description="Tests editing and saving a hwModel">
+        <webtest name="saveHwModel">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit HwModel link" url="/hwModelform?id=-1"/>
+                <verifytitle description="we should see the hwModelDetail title"
+                    text=".*${hwModelDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set name" name="name" value="HlFsKfFrUqCcLkSaAhWkKlZvNwHrOx"/>
+
+                <clickbutton label="${button.save}" description="Click Save"/>
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${hwModelDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwModel.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new HwModel -->
+    <target name="AddHwModel" description="Adds a new HwModel">
+        <webtest name="addHwModel">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/hwModelform"/>
+                <verifytitle description="we should see the hwModelDetail title"
+                    text=".*${hwModelDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set name" name="name" value="ExBsTqEiNkAzSfOuUtTvMgZzRgDnPw"/>
+
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+                <verifytitle description="HwModel List appears if save successful"
+                    text=".*${hwModelList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwModel.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing hwModel -->
+    <target name="DeleteHwModel" description="Deletes existing HwModel">
+        <webtest name="deleteHwModel">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit HwModel link" url="/hwModelform?id=-1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display HwModel List" text=".*${hwModelList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwModel.deleted}"/>
+            </steps>
+        </webtest>
+    </target>    <!--HwModel-END-->
+    
+    <!--HwMake-START-->
+    <!-- runs hwMake-related tests -->
+    <target name="HwMakeTests"
+            depends="SearchHwMakes,EditHwMake,SaveHwMake,AddHwMake,DeleteHwMake"
+            description="Call and executes all hwMake test cases (targets)">
+        <echo>Successfully ran all HwMake UI tests!</echo>
+    </target>
+
+    <!-- Verify the hwMakes list screen displays without errors -->
+    <target name="SearchHwMakes" description="Tests search for and displaying all hwMakes">
+        <webtest name="searchHwMakes">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View HwMake link" url="/hwMakes"/>
+                <verifytitle description="we should see the hwMakeList title"
+                    text=".*${hwMakeList.title}.*" regex="true"/>
+                <setinputfield description="set search term" name="q" value="*"/>
+                <clickbutton label="${button.search}" description="Click Search"/>
+                <verifytitle description="we should see the hwMakeList title"
+                    text=".*${hwMakeList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit hwMake screen displays without errors -->
+    <target name="EditHwMake" description="Tests editing an existing HwMake's information">
+        <webtest name="editHwMake">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View HwMake List" url="/hwMakes"/>
+                <clicklink label="-1" description="Click edit link"/>
+                <verifytitle description="we should see the hwMakeDetail title"
+                    text=".*${hwMakeDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a hwMake and then save -->
+    <target name="SaveHwMake" description="Tests editing and saving a hwMake">
+        <webtest name="saveHwMake">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit HwMake link" url="/hwMakeform?id=-1"/>
+                <verifytitle description="we should see the hwMakeDetail title"
+                    text=".*${hwMakeDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set name" name="name" value="YyNnTaDcNtJrRrPwDtRnLnZiFeRjVh"/>
+
+                <clickbutton label="${button.save}" description="Click Save"/>
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${hwMakeDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwMake.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new HwMake -->
+    <target name="AddHwMake" description="Adds a new HwMake">
+        <webtest name="addHwMake">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/hwMakeform"/>
+                <verifytitle description="we should see the hwMakeDetail title"
+                    text=".*${hwMakeDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set name" name="name" value="BiWmSkFfZgMtWhAlMaNpCwSvGkGdJf"/>
+
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+                <verifytitle description="HwMake List appears if save successful"
+                    text=".*${hwMakeList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwMake.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing hwMake -->
+    <target name="DeleteHwMake" description="Deletes existing HwMake">
+        <webtest name="deleteHwMake">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit HwMake link" url="/hwMakeform?id=-1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display HwMake List" text=".*${hwMakeList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwMake.deleted}"/>
+            </steps>
+        </webtest>
+    </target>    <!--HwMake-END-->
+    <!--HwArch-START-->
+    <!-- runs hwArch-related tests -->
+    <target name="HwArchTests"
+            depends="SearchHwArches,EditHwArch,SaveHwArch,AddHwArch,DeleteHwArch"
+            description="Call and executes all hwArch test cases (targets)">
+        <echo>Successfully ran all HwArch UI tests!</echo>
+    </target>
+
+    <!-- Verify the hwArches list screen displays without errors -->
+    <target name="SearchHwArches" description="Tests search for and displaying all hwArches">
+        <webtest name="searchHwArches">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View HwArch link" url="/hwArches"/>
+                <verifytitle description="we should see the hwArchList title"
+                    text=".*${hwArchList.title}.*" regex="true"/>
+                <setinputfield description="set search term" name="q" value="*"/>
+                <clickbutton label="${button.search}" description="Click Search"/>
+                <verifytitle description="we should see the hwArchList title"
+                    text=".*${hwArchList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit hwArch screen displays without errors -->
+    <target name="EditHwArch" description="Tests editing an existing HwArch's information">
+        <webtest name="editHwArch">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View HwArch List" url="/hwArches"/>
+                <clicklink label="-1" description="Click edit link"/>
+                <verifytitle description="we should see the hwArchDetail title"
+                    text=".*${hwArchDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a hwArch and then save -->
+    <target name="SaveHwArch" description="Tests editing and saving a hwArch">
+        <webtest name="saveHwArch">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit HwArch link" url="/hwArchform?id=-1"/>
+                <verifytitle description="we should see the hwArchDetail title"
+                    text=".*${hwArchDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set name" name="name" value="XwJvJhSfQrElXdGeZaPwPsFkWvNvZi"/>
+
+                <clickbutton label="${button.save}" description="Click Save"/>
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${hwArchDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwArch.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new HwArch -->
+    <target name="AddHwArch" description="Adds a new HwArch">
+        <webtest name="addHwArch">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/hwArchform"/>
+                <verifytitle description="we should see the hwArchDetail title"
+                    text=".*${hwArchDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set name" name="name" value="WyCrGeAnXkBvWvBrSvCmSkTePnAzYx"/>
+
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+                <verifytitle description="HwArch List appears if save successful"
+                    text=".*${hwArchList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwArch.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing hwArch -->
+    <target name="DeleteHwArch" description="Deletes existing HwArch">
+        <webtest name="deleteHwArch">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit HwArch link" url="/hwArchform?id=-1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display HwArch List" text=".*${hwArchList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwArch.deleted}"/>
+            </steps>
+        </webtest>
+    </target>    <!--HwArch-END-->
+    <!--HwSpec-START-->
+    <!-- runs hwSpec-related tests -->
+    <target name="HwSpecTests"
+            depends="SearchHwSpecs,EditHwSpec,SaveHwSpec,AddHwSpec,DeleteHwSpec"
+            description="Call and executes all hwSpec test cases (targets)">
+        <echo>Successfully ran all HwSpec UI tests!</echo>
+    </target>
+
+    <!-- Verify the hwSpecs list screen displays without errors -->
+    <target name="SearchHwSpecs" description="Tests search for and displaying all hwSpecs">
+        <webtest name="searchHwSpecs">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View HwSpec link" url="/hwSpecs"/>
+                <verifytitle description="we should see the hwSpecList title"
+                    text=".*${hwSpecList.title}.*" regex="true"/>
+                <setinputfield description="set search term" name="q" value="*"/>
+                <clickbutton label="${button.search}" description="Click Search"/>
+                <verifytitle description="we should see the hwSpecList title"
+                    text=".*${hwSpecList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit hwSpec screen displays without errors -->
+    <target name="EditHwSpec" description="Tests editing an existing HwSpec's information">
+        <webtest name="editHwSpec">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View HwSpec List" url="/hwSpecs"/>
+                <clicklink label="-1" description="Click edit link"/>
+                <verifytitle description="we should see the hwSpecDetail title"
+                    text=".*${hwSpecDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a hwSpec and then save -->
+    <target name="SaveHwSpec" description="Tests editing and saving a hwSpec">
+        <webtest name="saveHwSpec">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit HwSpec link" url="/hwSpecform?id=-1"/>
+                <verifytitle description="we should see the hwSpecDetail title"
+                    text=".*${hwSpecDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set name" name="name" value="ZeVwKaBzUcZsLrHqQfQvUwWaKiQhOk"/>
+
+                <clickbutton label="${button.save}" description="Click Save"/>
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${hwSpecDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwSpec.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new HwSpec -->
+    <target name="AddHwSpec" description="Adds a new HwSpec">
+        <webtest name="addHwSpec">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/hwSpecform"/>
+                <verifytitle description="we should see the hwSpecDetail title"
+                    text=".*${hwSpecDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set name" name="name" value="OgNqQhIkHmXhXaXpIsHlHqMuLyCxYh"/>
+
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+                <verifytitle description="HwSpec List appears if save successful"
+                    text=".*${hwSpecList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwSpec.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing hwSpec -->
+    <target name="DeleteHwSpec" description="Deletes existing HwSpec">
+        <webtest name="deleteHwSpec">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit HwSpec link" url="/hwSpecform?id=-1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display HwSpec List" text=".*${hwSpecList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${hwSpec.deleted}"/>
+            </steps>
+        </webtest>
+    </target>    <!--HwSpec-END-->
+    <!--Vendor-START-->
+    <!-- runs vendor-related tests -->
+    <target name="VendorTests"
+            depends="SearchVendors,EditVendor,SaveVendor,AddVendor,DeleteVendor"
+            description="Call and executes all vendor test cases (targets)">
+        <echo>Successfully ran all Vendor UI tests!</echo>
+    </target>
+
+    <!-- Verify the vendors list screen displays without errors -->
+    <target name="SearchVendors" description="Tests search for and displaying all vendors">
+        <webtest name="searchVendors">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Vendor link" url="/vendors"/>
+                <verifytitle description="we should see the vendorList title"
+                    text=".*${vendorList.title}.*" regex="true"/>
+                <setinputfield description="set search term" name="q" value="*"/>
+                <clickbutton label="${button.search}" description="Click Search"/>
+                <verifytitle description="we should see the vendorList title"
+                    text=".*${vendorList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit vendor screen displays without errors -->
+    <target name="EditVendor" description="Tests editing an existing Vendor's information">
+        <webtest name="editVendor">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View Vendor List" url="/vendors"/>
+                <clicklink label="-1" description="Click edit link"/>
+                <verifytitle description="we should see the vendorDetail title"
+                    text=".*${vendorDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a vendor and then save -->
+    <target name="SaveVendor" description="Tests editing and saving a vendor">
+        <webtest name="saveVendor">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Vendor link" url="/vendorform?id=-1"/>
+                <verifytitle description="we should see the vendorDetail title"
+                    text=".*${vendorDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set name" name="name" value="RhGyKiUdNhDyQfRvOyWtPhHvPlOgQr"/>
+
+                <clickbutton label="${button.save}" description="Click Save"/>
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${vendorDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${vendor.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Vendor -->
+    <target name="AddVendor" description="Adds a new Vendor">
+        <webtest name="addVendor">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/vendorform"/>
+                <verifytitle description="we should see the vendorDetail title"
+                    text=".*${vendorDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set name" name="name" value="QuXeOaGyWxIlQhAdSgTgIqZtDzNmQf"/>
+
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+                <verifytitle description="Vendor List appears if save successful"
+                    text=".*${vendorList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${vendor.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing vendor -->
+    <target name="DeleteVendor" description="Deletes existing Vendor">
+        <webtest name="deleteVendor">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Vendor link" url="/vendorform?id=-1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Vendor List" text=".*${vendorList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${vendor.deleted}"/>
+            </steps>
+        </webtest>
+    </target>    <!--Vendor-END-->
     <!--Product-START-->
     <!-- runs product-related tests -->
     <target name="ProductTests"
@@ -307,9 +792,9 @@
                     text=".*${productDetail.title}.*" regex="true"/>
 
                 <!-- update some of the required fields -->
-                <setInputField description="set majorVersion" name="majorVersion" value="841755642"/>
-                <setInputField description="set minorVersion" name="minorVersion" value="678066191"/>
-                <setInputField description="set name" name="name" value="GpTwUdZeDkLjEtWhSwZnVlMrShAcSdSkGgHcKxOuVpBuJsKsHuSbQcAqJnAiLrHjNsPhYsKxHmFjXjUj"/>
+                <setInputField description="set majorVersion" name="majorVersion" value="1934423917"/>
+                <setInputField description="set minorVersion" name="minorVersion" value="18395855"/>
+                <setInputField description="set name" name="name" value="UqLeGiMjKhBlVyPmEwPnTeSdLvSwLq"/>
 
                 <clickbutton label="${button.save}" description="Click Save"/>
                 <verifytitle description="Page re-appears if save successful"
@@ -330,9 +815,9 @@
                     text=".*${productDetail.title}.*" regex="true"/>
 
                 <!-- enter required fields -->
-                <setInputField description="set majorVersion" name="majorVersion" value="780244676"/>
-                <setInputField description="set minorVersion" name="minorVersion" value="1485561932"/>
-                <setInputField description="set name" name="name" value="LfNsTiQwQnKvCiYaBiAnIdRpUgAtWhHbWqUwJbYsNePaAoSvSuChNpKzAwXwBxOsXwMrJtPaWaAnFqAj"/>
+                <setInputField description="set majorVersion" name="majorVersion" value="1839574533"/>
+                <setInputField description="set minorVersion" name="minorVersion" value="1205614772"/>
+                <setInputField description="set name" name="name" value="FaOiHoRnVdStYwIxQmLlSkAuXnVmJt"/>
 
                 <clickbutton label="${button.save}" description="Click button 'Save'"/>
                 <verifytitle description="Product List appears if save successful"
@@ -357,10 +842,14 @@
             </steps>
         </webtest>
     </target>    <!--Product-END-->
-    
-    
-    
 </project>
+
+
+
+
+
+
+
 
 
 

@@ -22,13 +22,13 @@ import org.slf4j.LoggerFactory;
  *
  */
 @Entity @Table(name="model")
-public class HWModel extends BaseObject {
+public class HwModel extends BaseObject {
 
     /** */
     private static final long serialVersionUID = 4755592464042723105L;
 
     /** The class logger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(HWModel.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HwModel.class);
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
@@ -39,13 +39,13 @@ public class HWModel extends BaseObject {
      * Creates a new Model.
      *
      */
-    public HWModel(){};
+    public HwModel(){};
 
     /**
      * Creates a new Model.
      * @param name
      */
-    public HWModel(String name) {
+    public HwModel(String name) {
         super();
         this.name = name;
         LOGGER.debug(toString());
@@ -78,7 +78,7 @@ public class HWModel extends BaseObject {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final HWModel other = (HWModel) obj;
+        final HwModel other = (HwModel) obj;
 
         if (name == null) {
             if (other.name != null)

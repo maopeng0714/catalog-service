@@ -52,6 +52,46 @@
         </form>
         
         
+        
+        
+        
+        
+        <!--HwModel-START-->
+        <form name="hwModel">
+            <field property="name" depends="required">
+                <arg key="hwModel.name"/>
+            </field>
+        </form>
+        <!--HwModel-END-->
+        
+        <!--HwMake-START-->
+        <form name="hwMake">
+            <field property="name" depends="required">
+                <arg key="hwMake.name"/>
+            </field>
+        </form>
+        <!--HwMake-END-->
+        <!--HwArch-START-->
+        <form name="hwArch">
+            <field property="name" depends="required">
+                <arg key="hwArch.name"/>
+            </field>
+        </form>
+        <!--HwArch-END-->
+        <!--HwSpec-START-->
+        <form name="hwSpec">
+            <field property="name" depends="required">
+                <arg key="hwSpec.name"/>
+            </field>
+        </form>
+        <!--HwSpec-END-->
+        <!--Vendor-START-->
+        <form name="vendor">
+            <field property="name" depends="required">
+                <arg key="vendor.name"/>
+            </field>
+        </form>
+        <!--Vendor-END-->
         <!--Product-START-->
         <form name="product">
             <field property="majorVersion" depends="required">
@@ -65,8 +105,5 @@
             </field>
         </form>
         <!--Product-END-->
-        
-        
-        
     </formset>
 </form-validation>

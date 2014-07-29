@@ -14,12 +14,29 @@
     <menu:displayMenu name="Logout"/>
     
     
+    
+    
+    
+    
+    <!--HwModel-START-->
+    <menu:displayMenu name="HwModelMenu"/>
+    <!--HwModel-END-->
+    
+    <!--HwMake-START-->
+    <menu:displayMenu name="HwMakeMenu"/>
+    <!--HwMake-END-->
+    <!--HwArch-START-->
+    <menu:displayMenu name="HwArchMenu"/>
+    <!--HwArch-END-->
+    <!--HwSpec-START-->
+    <menu:displayMenu name="HwSpecMenu"/>
+    <!--HwSpec-END-->
+    <!--Vendor-START-->
+    <menu:displayMenu name="VendorMenu"/>
+    <!--Vendor-END-->
     <!--Product-START-->
     <menu:displayMenu name="ProductMenu"/>
     <!--Product-END-->
-    
-    
-    
 </ul>
 </div>
 </menu:useMenuDisplayer>

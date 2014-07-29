@@ -15,13 +15,37 @@
         <Menu name="Logout" title="user.logout" page="/logout" roles="ROLE_ADMIN,ROLE_USER"/>
         
         
+        
+        
+        
+        
+        <!--HwModel-START-->
+        <Menu name="HwModelMenu" title="hwModelList.title" page="/hwModels"/>
+        <!--HwModel-END-->
+        
+        <!--HwMake-START-->
+        <Menu name="HwMakeMenu" title="hwMakeList.title" page="/hwMakes"/>
+        <!--HwMake-END-->
+        <!--HwArch-START-->
+        <Menu name="HwArchMenu" title="hwArchList.title" page="/hwArches"/>
+        <!--HwArch-END-->
+        <!--HwSpec-START-->
+        <Menu name="HwSpecMenu" title="hwSpecList.title" page="/hwSpecs"/>
+        <!--HwSpec-END-->
+        <!--Vendor-START-->
+        <Menu name="VendorMenu" title="vendorList.title" page="/vendors"/>
+        <!--Vendor-END-->
         <!--Product-START-->
         <Menu name="ProductMenu" title="productList.title" page="/products"/>
         <!--Product-END-->
-        
-        
-        
     </Menus>
+
+
+
+
+
+
+
 
 
 

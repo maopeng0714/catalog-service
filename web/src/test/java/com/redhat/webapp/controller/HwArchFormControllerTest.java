@@ -1,7 +1,7 @@
 package com.redhat.webapp.controller;
 
 import com.redhat.webapp.controller.BaseControllerTestCase;
-import com.redhat.model.Product;
+import com.redhat.model.HwArch;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.validation.BindingResult;
@@ -14,53 +14,51 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ProductFormControllerTest extends BaseControllerTestCase {
+public class HwArchFormControllerTest extends BaseControllerTestCase {
     @Autowired
-    private ProductFormController form;
-    private Product product;
+    private HwArchFormController form;
+    private HwArch hwArch;
     private MockHttpServletRequest request;
 
     @Test
     public void testEdit() throws Exception {
         log.debug("testing edit...");
-        request = newGet("/productform");
+        request = newGet("/hwArchform");
         request.addParameter("id", "-1");
 
-        product = form.showForm(request);
-        assertNotNull(product);
+        hwArch = form.showForm(request);
+        assertNotNull(hwArch);
     }
 
     @Test
     public void testSave() throws Exception {
-        request = newGet("/productform");
+        request = newGet("/hwArchform");
         request.addParameter("id", "-1");
 
-        product = form.showForm(request);
-        assertNotNull(product);
+        hwArch = form.showForm(request);
+        assertNotNull(hwArch);
 
-        request = newPost("/productform");
+        request = newPost("/hwArchform");
 
-        product = form.showForm(request);
+        hwArch = form.showForm(request);
         // update required fields
-        product.setMajorVersion(1376636369);
-        product.setMinorVersion(1351560183);
-        product.setName("BlJnBiUfQvTlGkOlTkNyObSkSjIbEy");
+        hwArch.setName("BvVgKkFiMzCzOfSqDtVaHqGhIbXmBk");
 
-        BindingResult errors = new DataBinder(product).getBindingResult();
-        form.onSubmit(product, errors, request, new MockHttpServletResponse());
+        BindingResult errors = new DataBinder(hwArch).getBindingResult();
+        form.onSubmit(hwArch, errors, request, new MockHttpServletResponse());
         assertFalse(errors.hasErrors());
         assertNotNull(request.getSession().getAttribute("successMessages"));
     }
 
     @Test
     public void testRemove() throws Exception {
-        request = newPost("/productform");
+        request = newPost("/hwArchform");
         request.addParameter("delete", "");
-        product = new Product();
-        product.setId(-2L);
+        hwArch = new HwArch();
+        hwArch.setId(-2L);
 
-        BindingResult errors = new DataBinder(product).getBindingResult();
-        form.onSubmit(product, errors, request, new MockHttpServletResponse());
+        BindingResult errors = new DataBinder(hwArch).getBindingResult();
+        form.onSubmit(hwArch, errors, request, new MockHttpServletResponse());
 
         assertNotNull(request.getSession().getAttribute("successMessages"));
     }

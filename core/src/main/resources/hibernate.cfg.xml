@@ -15,5 +15,6 @@
         <mapping class="com.redhat.model.Vendor"/>
         <mapping class="com.redhat.model.HwMake"/>
         <mapping class="com.redhat.model.HwSpec"/>
+        <mapping class="com.redhat.model.HwModel"/>
     </session-factory>
 </hibernate-configuration>

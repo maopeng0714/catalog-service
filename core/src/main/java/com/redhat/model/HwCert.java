@@ -11,24 +11,18 @@ package com.redhat.model;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  *
  */
 @Entity
 @Table(name="hwcert")
-@PrimaryKeyJoinColumn(name="cert_id")
 public class HwCert extends Cert {
 
     /** */
     private static final long serialVersionUID = 3215848906401538298L;
-    /** The class logger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(HwCert.class);
+
 
     private HwArch arch = new HwArch();
 
@@ -36,7 +30,7 @@ public class HwCert extends Cert {
 
     private HwMake make = new HwMake();
 
-    private HWModel model = new HWModel();
+    private HwModel model = new HwModel();
 
     /**
      *
@@ -48,22 +42,6 @@ public class HwCert extends Cert {
         super(name);
     }
 
-    /**
-     * Creates a new HwCert.
-     *
-     * @param arch
-     * @param spec
-     * @param make
-     * @param model
-     */
-    public HwCert(String name, Vendor vendor, Product product, boolean isPublic, HwArch arch, HwSpec spec, HwMake make, HWModel model) {
-        super(name, vendor, product, isPublic);
-        this.arch = arch;
-        this.spec = spec;
-        this.make = make;
-        this.model = model;
-        LOGGER.debug(toString());
-    }
 
     /**
      * Creates a new HwCert.
@@ -127,14 +105,14 @@ public class HwCert extends Cert {
      */
     @ManyToOne
     @JoinColumn(name = "model_id")
-    public HWModel getModel() {
+    public HwModel getModel() {
         return model;
     }
 
     /**
      * @param model the model to set
      */
-    public void setModel(HWModel model) {
+    public void setModel(HwModel model) {
         this.model = model;
     }
 
