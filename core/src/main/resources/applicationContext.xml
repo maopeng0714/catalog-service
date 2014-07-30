@@ -11,109 +11,7 @@
     <!-- Activates scanning of @Repository and @Service -->
     <context:component-scan base-package="com.redhat"/>
 
-    <!-- Add new DAOs here -->
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <!--HwModelManager-START-->
-    <bean id="hwModelManager" class="com.redhat.service.impl.GenericManagerImpl">
-        <constructor-arg>
-            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
-                <constructor-arg value="com.redhat.model.HwModel"/>
-            </bean>
-        </constructor-arg>
-    </bean>
-    <!--HwModelManager-END-->
-
-    <!--HwArchManager-START-->
-    <bean id="hwArchManager" class="com.redhat.service.impl.GenericManagerImpl">
-        <constructor-arg>
-            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
-                <constructor-arg value="com.redhat.model.HwArch"/>
-            </bean>
-        </constructor-arg>
-    </bean>
-    <!--HwArchManager-END-->
-
-    
-
-    <!--HwMakeManager-START-->
-    <bean id="hwMakeManager" class="com.redhat.service.impl.GenericManagerImpl">
-        <constructor-arg>
-            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
-                <constructor-arg value="com.redhat.model.HwMake"/>
-            </bean>
-        </constructor-arg>
-    </bean>
-    <!--HwMakeManager-END-->
-
-    <!--HwSpecManager-START-->
-    <bean id="hwSpecManager" class="com.redhat.service.impl.GenericManagerImpl">
-        <constructor-arg>
-            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
-                <constructor-arg value="com.redhat.model.HwSpec"/>
-            </bean>
-        </constructor-arg>
-    </bean>
-    <!--HwSpecManager-END-->
+    <!-- Add new DAOs here --> 
 
     <!--VendorManager-START-->
     <bean id="vendorManager" class="com.redhat.service.impl.GenericManagerImpl">
@@ -134,16 +32,47 @@
         </constructor-arg>
     </bean>
     <!--ProductManager-END-->
+    
 
-    <!--CertManager-START-->
-    <bean id="certManager" class="com.redhat.service.impl.GenericManagerImpl">
+    <!--HwArchManager-START-->
+    <bean id="hwArchManager" class="com.redhat.service.impl.GenericManagerImpl">
         <constructor-arg>
             <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
-                <constructor-arg value="com.redhat.model.Cert"/>
+                <constructor-arg value="com.redhat.model.HwArch"/>
             </bean>
         </constructor-arg>
     </bean>
-    <!--CertManager-END-->
+    <!--HwArchManager-END-->
+
+    <!--HwMakeManager-START-->
+    <bean id="hwMakeManager" class="com.redhat.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="com.redhat.model.HwMake"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!--HwMakeManager-END-->
+
+    <!--HwModelManager-START-->
+    <bean id="hwModelManager" class="com.redhat.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="com.redhat.model.HwModel"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!--HwModelManager-END-->
+
+    <!--HwSpecManager-START-->
+    <bean id="hwSpecManager" class="com.redhat.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="com.redhat.model.HwSpec"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!--HwSpecManager-END-->
 
     
 

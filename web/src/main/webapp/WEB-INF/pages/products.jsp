@@ -36,12 +36,12 @@
     </div>
 
 <display:table name="productList" class="table table-condensed table-striped table-hover" requestURI="" id="productList" export="true" pagesize="25">
-    <display:column property="id" sortable="true" href="productform" media="html"
-        paramId="id" paramProperty="id" titleKey="product.id"/>
-    <display:column property="id" media="csv excel xml pdf" titleKey="product.id"/>
+    <display:column property="name" sortable="true" href="productform" media="html"
+        paramId="id" paramProperty="id"  titleKey="product.name"/>
+    <display:column property="name" media="csv excel xml pdf" titleKey="product.name"/>
     <display:column property="majorVersion" sortable="true" titleKey="product.majorVersion"/>
     <display:column property="minorVersion" sortable="true" titleKey="product.minorVersion"/>
-    <display:column property="name" sortable="true" titleKey="product.name"/>
+ 
 
     <display:setProperty name="paging.banner.item_name"><fmt:message key="productList.product"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="productList.products"/></display:setProperty>

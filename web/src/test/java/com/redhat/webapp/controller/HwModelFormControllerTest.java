@@ -42,7 +42,7 @@ public class HwModelFormControllerTest extends BaseControllerTestCase {
 
         hwModel = form.showForm(request);
         // update required fields
-        hwModel.setName("WvLiAhOoMbEoEoIgJpWmHwUrWyLcHb");
+        hwModel.setName("JjCqUdGuGsPeKvKgLwRqGiNpRcFoBw");
 
         BindingResult errors = new DataBinder(hwModel).getBindingResult();
         form.onSubmit(hwModel, errors, request, new MockHttpServletResponse());

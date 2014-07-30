@@ -36,10 +36,9 @@
     </div>
 
 <display:table name="hwMakeList" class="table table-condensed table-striped table-hover" requestURI="" id="hwMakeList" export="true" pagesize="25">
-    <display:column property="id" sortable="true" href="hwMakeform" media="html"
-        paramId="id" paramProperty="id" titleKey="hwMake.id"/>
-    <display:column property="id" media="csv excel xml pdf" titleKey="hwMake.id"/>
-    <display:column property="name" sortable="true" titleKey="hwMake.name"/>
+    <display:column property="name" sortable="true" href="hwMakeform" media="html"
+        paramId="id" paramProperty="id" titleKey="hwMake.name"/>
+    <display:column property="name" media="csv excel xml pdf" titleKey="hwMake.name"/>
 
     <display:setProperty name="paging.banner.item_name"><fmt:message key="hwMakeList.hwMake"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="hwMakeList.hwMakes"/></display:setProperty>

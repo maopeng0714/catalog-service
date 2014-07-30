@@ -42,7 +42,7 @@ public class VendorFormControllerTest extends BaseControllerTestCase {
 
         vendor = form.showForm(request);
         // update required fields
-        vendor.setName("CaRcVsJcIsXhTsKhGiIhTvFtWgCiEq");
+        vendor.setName("EvKqZhEtWeXhSyXvYnFbWoAdGyBhMq");
 
         BindingResult errors = new DataBinder(vendor).getBindingResult();
         form.onSubmit(vendor, errors, request, new MockHttpServletResponse());

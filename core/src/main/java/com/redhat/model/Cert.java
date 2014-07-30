@@ -9,47 +9,56 @@
 package com.redhat.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  *
  */
-@Entity
-@Table(name="cert")
-@Inheritance(strategy=InheritanceType.JOINED)
+// @Entity
+// @Table(name="cert")
+// @Inheritance(strategy=InheritanceType.JOINED)
+@MappedSuperclass
+@Indexed
+@XmlRootElement
 public class Cert extends BaseObject {
 
     /** */
     private static final long serialVersionUID = 308328607273405167L;
     /** The class logger. */
     private static final Logger LOGGER = LoggerFactory.getLogger(Cert.class);
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @Field
+    @Column(unique = true, nullable = false, length = 30)
     private String name;
-
+    @ManyToOne
+    @JoinColumn(name = "vendor_id", referencedColumnName = "id")
     private Vendor vendor = new Vendor();
-
+    @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product = new Product();
-
+    @Column(name = "show_public")
     private boolean isPublic;
+
     /**
      *
      * Creates a new Certification.
      *
      */
-    public Cert(){};
+    public Cert() {
+    };
 
     /**
      * Creates a new Certification.
@@ -58,7 +67,7 @@ public class Cert extends BaseObject {
      * @param vendorId
      * @param productId
      */
-    public Cert(String name) {
+    public Cert(final String name) {
         super();
         this.name = name;
         LOGGER.debug(toString());
@@ -72,33 +81,34 @@ public class Cert extends BaseObject {
      * @param product
      * @param isPublic
      */
-    public Cert(String name, Vendor vendor, Product product, boolean isPublic) {
+    public Cert(final String name, final Vendor vendor, final Product product,
+            final boolean isPublic) {
         super();
         this.name = name;
         this.vendor = vendor;
         this.product = product;
         this.isPublic = isPublic;
     }
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO )
+
     public Long getId() {
         return id;
     }
-    public void setId(Long id) {
+
+    public void setId(final Long id) {
         this.id = id;
     }
-    @Column(unique=true, nullable=false, length=30)
+
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+
+    public void setName(final String name) {
         this.name = name;
     }
 
     /**
      * @return the isPublic
      */
-    @Column(name="show_public")
     public boolean isPublic() {
         return isPublic;
     }
@@ -106,15 +116,13 @@ public class Cert extends BaseObject {
     /**
      * @param isPublic the isPublic to set
      */
-    public void setPublic(boolean isPublic) {
+    public void setPublic(final boolean isPublic) {
         this.isPublic = isPublic;
     }
 
     /**
      * @return the vendor
      */
-    @ManyToOne
-    @JoinColumn(name="vendor_id", referencedColumnName="id")
     public Vendor getVendor() {
         return vendor;
     }
@@ -122,15 +130,13 @@ public class Cert extends BaseObject {
     /**
      * @param vendor the vendor to set
      */
-    public void setVendor(Vendor vendor) {
+    public void setVendor(final Vendor vendor) {
         this.vendor = vendor;
     }
 
     /**
      * @return the product
      */
-    @ManyToOne
-    @JoinColumn(name = "product_id")
     public Product getProduct() {
         return product;
     }
@@ -138,7 +144,7 @@ public class Cert extends BaseObject {
     /**
      * @param product the product to set
      */
-    public void setProduct(Product product) {
+    public void setProduct(final Product product) {
         this.product = product;
     }
 
@@ -160,7 +166,7 @@ public class Cert extends BaseObject {
      * {@inheritDoc}
      */
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj)
             return true;
         if (obj == null)
@@ -196,6 +202,5 @@ public class Cert extends BaseObject {
         return "Certification [name=" + name + ", vendor=" + vendor + ", product=" + product
                 + ", isPublic=" + isPublic + "]";
     }
-
 
 }

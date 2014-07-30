@@ -42,9 +42,9 @@ public class ProductFormControllerTest extends BaseControllerTestCase {
 
         product = form.showForm(request);
         // update required fields
-        product.setMajorVersion(1376636369);
-        product.setMinorVersion(1351560183);
-        product.setName("BlJnBiUfQvTlGkOlTkNyObSkSjIbEy");
+        product.setMajorVersion(1327556666);
+        product.setMinorVersion(307995428);
+        product.setName("OhZfKeLjUgXfNgNnXqSnBeYwHnGvAx");
 
         BindingResult errors = new DataBinder(product).getBindingResult();
         form.onSubmit(product, errors, request, new MockHttpServletResponse());

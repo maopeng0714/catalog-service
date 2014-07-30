@@ -15,13 +15,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  *
  */
-@Entity @Table(name="product")
+@Entity
+@Table(name = "product")
+@Indexed
 public class Product extends BaseObject {
 
     /** */
@@ -30,11 +34,13 @@ public class Product extends BaseObject {
     /** The class logger. */
     private static final Logger LOGGER = LoggerFactory.getLogger(Product.class);
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(unique=true, nullable=false, length=30)
+    @Column(unique = true, nullable = false, length = 30)
+    @Field
     private String name;
-    @Column(unique=true, nullable=false)
+    @Column(unique = true, nullable = false)
+    @Field
     private int majorVersion;
     private int minorVersion;
 
@@ -52,7 +58,7 @@ public class Product extends BaseObject {
      * @param majorVersion
      * @param minorVersion
      */
-    public Product(String name, int majorVersion, int minorVersion) {
+    public Product(final String name, final int majorVersion, final int minorVersion) {
         super();
         this.name = name;
         this.majorVersion = majorVersion;
@@ -70,7 +76,7 @@ public class Product extends BaseObject {
     /**
      * @param id the id to set
      */
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -84,7 +90,7 @@ public class Product extends BaseObject {
     /**
      * @param name the name to set
      */
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -98,7 +104,7 @@ public class Product extends BaseObject {
     /**
      * @param majorVersion the majorVersion to set
      */
-    public void setMajorVersion(int majorVersion) {
+    public void setMajorVersion(final int majorVersion) {
         this.majorVersion = majorVersion;
     }
 
@@ -112,7 +118,7 @@ public class Product extends BaseObject {
     /**
      * @param minorVersion the minorVersion to set
      */
-    public void setMinorVersion(int minorVersion) {
+    public void setMinorVersion(final int minorVersion) {
         this.minorVersion = minorVersion;
     }
 
@@ -133,7 +139,7 @@ public class Product extends BaseObject {
      * {@inheritDoc}
      */
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj)
             return true;
         if (obj == null)

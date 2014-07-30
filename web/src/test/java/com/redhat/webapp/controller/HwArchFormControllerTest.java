@@ -42,7 +42,7 @@ public class HwArchFormControllerTest extends BaseControllerTestCase {
 
         hwArch = form.showForm(request);
         // update required fields
-        hwArch.setName("BvVgKkFiMzCzOfSqDtVaHqGhIbXmBk");
+        hwArch.setName("ZdBrMtJjYoQiKnVlJnQzJbLfZhXyEa");
 
         BindingResult errors = new DataBinder(hwArch).getBindingResult();
         form.onSubmit(hwArch, errors, request, new MockHttpServletResponse());

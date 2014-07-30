@@ -1,7 +1,7 @@
 package com.redhat.webapp.controller;
 
 import com.redhat.webapp.controller.BaseControllerTestCase;
-import com.redhat.model.HwSpec;
+import com.redhat.model.HwCert;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.validation.BindingResult;
@@ -14,51 +14,51 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class HwSpecFormControllerTest extends BaseControllerTestCase {
+public class HwCertFormControllerTest extends BaseControllerTestCase {
     @Autowired
-    private HwSpecFormController form;
-    private HwSpec hwSpec;
+    private HwCertFormController form;
+    private HwCert hwCert;
     private MockHttpServletRequest request;
 
     @Test
     public void testEdit() throws Exception {
         log.debug("testing edit...");
-        request = newGet("/hwSpecform");
+        request = newGet("/hwCertform");
         request.addParameter("id", "-1");
 
-        hwSpec = form.showForm(request);
-        assertNotNull(hwSpec);
+        hwCert = form.showForm(request);
+        assertNotNull(hwCert);
     }
 
     @Test
     public void testSave() throws Exception {
-        request = newGet("/hwSpecform");
+        request = newGet("/hwCertform");
         request.addParameter("id", "-1");
 
-        hwSpec = form.showForm(request);
-        assertNotNull(hwSpec);
+        hwCert = form.showForm(request);
+        assertNotNull(hwCert);
 
-        request = newPost("/hwSpecform");
+        request = newPost("/hwCertform");
 
-        hwSpec = form.showForm(request);
+        hwCert = form.showForm(request);
         // update required fields
-        hwSpec.setName("KaNtJsEtZqDxZwXbSlPaRuBfCqAdLd");
+        hwCert.setName("LvEbAlFsVoWtQfAjYtWkPnViVbYkXr");
 
-        BindingResult errors = new DataBinder(hwSpec).getBindingResult();
-        form.onSubmit(hwSpec, errors, request, new MockHttpServletResponse());
+        BindingResult errors = new DataBinder(hwCert).getBindingResult();
+        form.onSubmit(hwCert, errors, request, new MockHttpServletResponse());
         assertFalse(errors.hasErrors());
         assertNotNull(request.getSession().getAttribute("successMessages"));
     }
 
     @Test
     public void testRemove() throws Exception {
-        request = newPost("/hwSpecform");
+        request = newPost("/hwCertform");
         request.addParameter("delete", "");
-        hwSpec = new HwSpec();
-        hwSpec.setId(-2L);
+        hwCert = new HwCert();
+        hwCert.setId(-2L);
 
-        BindingResult errors = new DataBinder(hwSpec).getBindingResult();
-        form.onSubmit(hwSpec, errors, request, new MockHttpServletResponse());
+        BindingResult errors = new DataBinder(hwCert).getBindingResult();
+        form.onSubmit(hwCert, errors, request, new MockHttpServletResponse());
 
         assertNotNull(request.getSession().getAttribute("successMessages"));
     }

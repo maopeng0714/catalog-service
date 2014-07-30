@@ -13,32 +13,31 @@
             <Item name="FileUpload" title="menu.selectFile" page="/fileupload"/>
         </Menu>
         <Menu name="Logout" title="user.logout" page="/logout" roles="ROLE_ADMIN,ROLE_USER"/>
-        
-        
-        
-        
-        
-        
-        <!--HwModel-START-->
-        <Menu name="HwModelMenu" title="hwModelList.title" page="/hwModels"/>
-        <!--HwModel-END-->
-        
-        <!--HwMake-START-->
-        <Menu name="HwMakeMenu" title="hwMakeList.title" page="/hwMakes"/>
-        <!--HwMake-END-->
-        <!--HwArch-START-->
-        <Menu name="HwArchMenu" title="hwArchList.title" page="/hwArches"/>
-        <!--HwArch-END-->
-        <!--HwSpec-START-->
-        <Menu name="HwSpecMenu" title="hwSpecList.title" page="/hwSpecs"/>
-        <!--HwSpec-END-->
-        <!--Vendor-START-->
-        <Menu name="VendorMenu" title="vendorList.title" page="/vendors"/>
-        <!--Vendor-END-->
-        <!--Product-START-->
-        <Menu name="ProductMenu" title="productList.title" page="/products"/>
-        <!--Product-END-->
+
+        <Menu name="CertConfigMenu" title="menu.certConfig" description="Settings for Certification" roles="ROLE_ADMIN" page="/vendors">
+        	<Item name="Vendors" title="vendorList.title" page="/vendors"/>
+        	<Item name="Products" title="productList.title" page="/products" />
+        	<Item name="HwArchs" title="hwArchList.title" page="/hwArches" />
+        	<Item name="HwMakes" title="hwMakeList.title" page="/hwMakes"/>
+        	<Item name="HwModels" title="hwModelList.title" page="/hwModels" />
+        	<Item name="HwSpecs" title="hwSpecList.title" page="/hwSpecs" />
+        </Menu>
+        <!--HwCert-START-->
+        <Menu name="HwCertMenu" title="hwCertList.title" page="/hwCerts" roles="ROLE_ADMIN,ROLE_USER"/>
+        <!--HwCert-END-->
     </Menus>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

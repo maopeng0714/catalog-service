@@ -36,10 +36,9 @@
     </div>
 
 <display:table name="hwArchList" class="table table-condensed table-striped table-hover" requestURI="" id="hwArchList" export="true" pagesize="25">
-    <display:column property="id" sortable="true" href="hwArchform" media="html"
-        paramId="id" paramProperty="id" titleKey="hwArch.id"/>
-    <display:column property="id" media="csv excel xml pdf" titleKey="hwArch.id"/>
-    <display:column property="name" sortable="true" titleKey="hwArch.name"/>
+    <display:column property="name" sortable="true" href="hwArchform" media="html"
+        paramId="id" paramProperty="id" titleKey="hwArch.name"/>
+    <display:column property="name" media="csv excel xml pdf" titleKey="hwArch.name"/>
 
     <display:setProperty name="paging.banner.item_name"><fmt:message key="hwArchList.hwArch"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="hwArchList.hwArches"/></display:setProperty>

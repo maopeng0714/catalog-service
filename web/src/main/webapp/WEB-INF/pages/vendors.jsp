@@ -36,10 +36,8 @@
     </div>
 
 <display:table name="vendorList" class="table table-condensed table-striped table-hover" requestURI="" id="vendorList" export="true" pagesize="25">
-    <display:column property="id" sortable="true" href="vendorform" media="html"
-        paramId="id" paramProperty="id" titleKey="vendor.id"/>
-    <display:column property="id" media="csv excel xml pdf" titleKey="vendor.id"/>
-    <display:column property="name" sortable="true" titleKey="vendor.name"/>
+    <display:column property="name" sortable="true" href="vendorform" media="html" paramId="id" paramProperty="id" titleKey="vendor.name"/>
+    <display:column property="name" media="csv excel xml pdf" titleKey="vendor.name"/>
 
     <display:setProperty name="paging.banner.item_name"><fmt:message key="vendorList.vendor"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="vendorList.vendors"/></display:setProperty>

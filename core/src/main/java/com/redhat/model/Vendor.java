@@ -15,13 +15,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  *
  */
-@Entity @Table(name="vendor")
+@Entity
+@Table(name = "vendor")
+@Indexed
 public class Vendor extends BaseObject {
 
     /** */
@@ -30,26 +34,30 @@ public class Vendor extends BaseObject {
     /** The class logger. */
     private static final Logger LOGGER = LoggerFactory.getLogger(Vendor.class);
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(unique=true, nullable=false, length=30)
+    @Column(unique = true, nullable = false, length = 30)
+    @Field
     private String name;
 
     /**
      * Creates a new Vendor.
      *
      */
-    public Vendor(){};
+    public Vendor() {
+    };
 
     /**
      * Creates a new Vendor.
+     *
      * @param name
      */
-    public Vendor(String name) {
+    public Vendor(final String name) {
         super();
         this.name = name;
         LOGGER.debug(toString());
     }
+
     /**
      * {@inheritDoc}
      */
@@ -57,6 +65,7 @@ public class Vendor extends BaseObject {
     public String toString() {
         return "Vendor [name=" + name + "]";
     }
+
     /**
      * {@inheritDoc}
      */
@@ -67,11 +76,12 @@ public class Vendor extends BaseObject {
         result = prime * result + (name == null ? 0 : name.hashCode());
         return result;
     }
+
     /**
      * {@inheritDoc}
      */
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj)
             return true;
         if (obj == null)
@@ -94,24 +104,26 @@ public class Vendor extends BaseObject {
     public Long getId() {
         return id;
     }
+
     /**
      * @param id the id to set
      */
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
+
     /**
      * @return the name
      */
     public String getName() {
         return name;
     }
+
     /**
      * @param name the name to set
      */
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
-
 
 }

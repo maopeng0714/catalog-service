@@ -36,10 +36,9 @@
     </div>
 
 <display:table name="hwModelList" class="table table-condensed table-striped table-hover" requestURI="" id="hwModelList" export="true" pagesize="25">
-    <display:column property="id" sortable="true" href="hwModelform" media="html"
-        paramId="id" paramProperty="id" titleKey="hwModel.id"/>
-    <display:column property="id" media="csv excel xml pdf" titleKey="hwModel.id"/>
-    <display:column property="name" sortable="true" titleKey="hwModel.name"/>
+    <display:column property="name" sortable="true" href="hwModelform" media="html"
+        paramId="id" paramProperty="id" titleKey="hwModel.name"/>
+    <display:column property="name" media="csv excel xml pdf" titleKey="hwModel.name"/>
 
     <display:setProperty name="paging.banner.item_name"><fmt:message key="hwModelList.hwModel"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="hwModelList.hwModels"/></display:setProperty>

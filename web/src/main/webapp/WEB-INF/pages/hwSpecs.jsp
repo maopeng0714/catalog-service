@@ -36,10 +36,9 @@
     </div>
 
 <display:table name="hwSpecList" class="table table-condensed table-striped table-hover" requestURI="" id="hwSpecList" export="true" pagesize="25">
-    <display:column property="id" sortable="true" href="hwSpecform" media="html"
-        paramId="id" paramProperty="id" titleKey="hwSpec.id"/>
-    <display:column property="id" media="csv excel xml pdf" titleKey="hwSpec.id"/>
-    <display:column property="name" sortable="true" titleKey="hwSpec.name"/>
+    <display:column property="name" sortable="true" href="hwSpecform" media="html"
+        paramId="id" paramProperty="id" titleKey="hwSpec.name"/>
+    <display:column property="name" media="csv excel xml pdf" titleKey="hwSpec.name"/>
     <display:column property="url" sortable="true" titleKey="hwSpec.url"/>
 
     <display:setProperty name="paging.banner.item_name"><fmt:message key="hwSpecList.hwSpec"/></display:setProperty>

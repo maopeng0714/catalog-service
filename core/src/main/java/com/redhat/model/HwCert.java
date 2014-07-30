@@ -13,23 +13,32 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Indexed;
+
 /**
  *
  */
 @Entity
-@Table(name="hwcert")
+@Table(name = "hw_cert")
+@Indexed
 public class HwCert extends Cert {
 
     /** */
     private static final long serialVersionUID = 3215848906401538298L;
-
-
+    @ManyToOne
+    @JoinColumn(name = "arch_id")
     private HwArch arch = new HwArch();
 
+    @ManyToOne
+    @JoinColumn(name = "spec_id")
     private HwSpec spec = new HwSpec();
 
+    @ManyToOne
+    @JoinColumn(name = "make_id")
     private HwMake make = new HwMake();
 
+    @ManyToOne
+    @JoinColumn(name = "model_id")
     private HwModel model = new HwModel();
 
     /**
@@ -38,10 +47,9 @@ public class HwCert extends Cert {
      *
      * @param name
      */
-    public HwCert(String name){
+    public HwCert(final String name) {
         super(name);
     }
-
 
     /**
      * Creates a new HwCert.
@@ -51,12 +59,9 @@ public class HwCert extends Cert {
 
     }
 
-
     /**
      * @return the arch
      */
-    @ManyToOne
-    @JoinColumn(name = "arch_id")
     public HwArch getArch() {
         return arch;
     }
@@ -64,15 +69,13 @@ public class HwCert extends Cert {
     /**
      * @param arch the arch to set
      */
-    public void setArch(HwArch arch) {
+    public void setArch(final HwArch arch) {
         this.arch = arch;
     }
 
     /**
      * @return the spec
      */
-    @ManyToOne
-    @JoinColumn(name = "spec_id")
     public HwSpec getSpec() {
         return spec;
     }
@@ -80,15 +83,13 @@ public class HwCert extends Cert {
     /**
      * @param spec the spec to set
      */
-    public void setSpec(HwSpec spec) {
+    public void setSpec(final HwSpec spec) {
         this.spec = spec;
     }
 
     /**
      * @return the make
      */
-    @ManyToOne
-    @JoinColumn(name = "make_id")
     public HwMake getMake() {
         return make;
     }
@@ -96,15 +97,13 @@ public class HwCert extends Cert {
     /**
      * @param make the make to set
      */
-    public void setMake(HwMake make) {
+    public void setMake(final HwMake make) {
         this.make = make;
     }
 
     /**
      * @return the model
      */
-    @ManyToOne
-    @JoinColumn(name = "model_id")
     public HwModel getModel() {
         return model;
     }
@@ -112,7 +111,7 @@ public class HwCert extends Cert {
     /**
      * @param model the model to set
      */
-    public void setModel(HwModel model) {
+    public void setModel(final HwModel model) {
         this.model = model;
     }
 
@@ -134,7 +133,7 @@ public class HwCert extends Cert {
      * {@inheritDoc}
      */
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj)
             return true;
         if (!super.equals(obj))
@@ -173,12 +172,5 @@ public class HwCert extends Cert {
         return "HwCert [arch=" + arch + ", spec=" + spec + ", make=" + make + ", model=" + model
                 + "]";
     }
-
-
-
-
-
-
-
 
 }

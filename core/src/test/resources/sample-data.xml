@@ -119,127 +119,26 @@
             <value description="role_id">-2</value>
         </row>
     </table>
+  
     
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <!--HwModel-START-->
-    <table name="model">
-        <column>id</column>
-        <column>name</column>
-    <row>
-        <value description="id">-1</value>
-        <value description="name">ZnAfCyEiAtFvYlUyBlIwWuFzObAcCn</value>
-    </row>
-    <row>
-        <value description="id">-2</value>
-        <value description="name">UtNoLbCaQhWyJnPyFpIcAbPvYbKvRk</value>
-    </row>
-    <row>
-        <value description="id">-3</value>
-        <value description="name">IrDrQxXiVnUbXsFhRkIhLxVpCbTxJi</value>
-    </row>
-    </table>
-    <!--HwModel-END-->
-    <!--HwArch-START-->
-    <table name="arch">
-        <column>id</column>
-        <column>name</column>
-    <row>
-        <value description="id">-1</value>
-        <value description="name">JiXpIvGpLeMpEiAmBzHwAoShIoJsKj</value>
-    </row>
-    <row>
-        <value description="id">-2</value>
-        <value description="name">UjDiTiIxBwZgKoUyUlWhNhOxSlUcPj</value>
-    </row>
-    <row>
-        <value description="id">-3</value>
-        <value description="name">PrPyXuQkAdYaXmAjFxHhYiFkKwQhZo</value>
-    </row>
-    </table>
-    <!--HwArch-END-->
-    
-    <!--HwMake-START-->
-    <table name="make">
-        <column>id</column>
-        <column>name</column>
-    <row>
-        <value description="id">-1</value>
-        <value description="name">RkNlOfAqLrEiFwHxFmWsGhQcOuPzVv</value>
-    </row>
-    <row>
-        <value description="id">-2</value>
-        <value description="name">FyNwPrPzHrGbFfNfUmIrSuRfPmNfCu</value>
-    </row>
-    <row>
-        <value description="id">-3</value>
-        <value description="name">CxOxAwWbDrYmLiTjBfZdKjYcKoLkXp</value>
-    </row>
-    </table>
-    <!--HwMake-END-->
-    <!--HwSpec-START-->
-    <table name="spec">
-        <column>id</column>
-        <column>name</column>
-        <column>url</column>
-    <row>
-        <value description="id">-1</value>
-        <value description="name">YhWyKuFfHpOyGjAmHrSjZuIoUcMjIi</value>
-        <value description="url">LiWfFoJhZcGzXgFwWfVrPqNuSlKvRoSmGmCkOuGjXqDiTuNdAzOaSnCsSwTvWvLhRqBqBfDqNmTaLlSrLfGeZwYzVoDjQnUrSpJiSoGwCqKbNrHmBrYdKxEmRoIiQrBqHgBsDzTaRwBnNjSnLnDlEuYlDvCqQeJlEzXbSqQeBrYjFdLfLvSoAiJpQkYqTvAqMaKbBkGuKgLsBlFkGeMuOuZrRiWzEyXxBfPwNaPnTyAyXkSlLnMwDhNbOhPfXcF</value>
-    </row>
-    <row>
-        <value description="id">-2</value>
-        <value description="name">JpEjZfKhTzSqMwLjPvKkIvVqRoHeOv</value>
-        <value description="url">ZjCoKzNyBjTaBdOrPlSpFyUsJfIcOiVzUhWpXsVxAtDeAiHyWkWzYaRhOoXiUvPiPwAdWzEyVsExNuEzPkWvBpFkWgJxOeSgDpYfWmWuUqUqAgKsQhHrRfHcEaKcCmDzUoKqUtLyQzOzGgAwGmHyUoHxFsUzFwQqWrLgSvHeHsCdItSkPoKiCjHmUzTbLnHxYgDrLkJbUsLoDjLgEpSrVlJfPpSzPsTyUlDyRvHbTmAwUpWfXdGxWeMhZqDpJoD</value>
-    </row>
-    <row>
-        <value description="id">-3</value>
-        <value description="name">IeLyWcUpMvKuAoJfFcImFeZcXjMwHi</value>
-        <value description="url">HvIfPuDaAeUoTfRzWjRuCiNjJpWjIkNfMuTxWpDeHfOgLhAzOhGmWhHtXlJtQsOgEcKqOgQqOeZqPxMtOmVwItLgQcTdGbOxEmMmIzAcPzIzShYjEzQbPpOzSqChLiVwXmPdIiMmRsAfZbIwQiSvNdMvGhPmHhKfFnPqRzVqOgPvPxZsEzQhDgXhLjEiLmVxPmIxEaDhRjHgSjWiMxKvTsJuYlRiVzEkSjOzHpBmUzIgLxNuZkTaVvOtLrDoYsJ</value>
-    </row>
-    </table>
-    <!--HwSpec-END-->
     <!--Vendor-START-->
     <table name="vendor">
         <column>id</column>
         <column>name</column>
     <row>
-        <value description="id">-1</value>
-        <value description="name">TpJgXcKrMnOkHxIiUqOtEeBvYkNxZo</value>
+        <value description="id">1</value>
+        <value description="name">Dell</value>
     </row>
     <row>
-        <value description="id">-2</value>
-        <value description="name">SpJeDuAhMsVtWfIlLjYuLaWuEjFaXk</value>
+        <value description="id">2</value>
+        <value description="name">IBM</value>
     </row>
     <row>
-        <value description="id">-3</value>
-        <value description="name">MgDxStEfOpBoBbWjFqEhXeEjRsEyWe</value>
+        <value description="id">3</value>
+        <value description="name">HP</value>
     </row>
     </table>
     <!--Vendor-END-->
@@ -250,121 +149,150 @@
         <column>minorVersion</column>
         <column>name</column>
     <row>
-        <value description="id">-1</value>
-        <value description="majorVersion">989029917</value>
-        <value description="minorVersion">1942746892</value>
-        <value description="name">LgYvVlMeUiQpLuYyRvUaWfNqCkIuQk</value>
+        <value description="id">1</value>
+        <value description="majorVersion">7</value>
+        <value description="minorVersion">0</value>
+        <value description="name">Red Hat Enterprise Linux</value>
     </row>
     <row>
-        <value description="id">-2</value>
-        <value description="majorVersion">247289116</value>
-        <value description="minorVersion">706293185</value>
-        <value description="name">YhGnNzGnGxGoDvQhSmOwOgTrInZxTr</value>
+        <value description="id">2</value>
+        <value description="majorVersion">5</value>
+        <value description="minorVersion">0</value>
+        <value description="name">RHOSP</value>
     </row>
     <row>
-        <value description="id">-3</value>
-        <value description="majorVersion">905991783</value>
-        <value description="minorVersion">159539501</value>
-        <value description="name">VzVjTlXvIiMzXgScYbZyUvGtWoUpAu</value>
+        <value description="id">3</value>
+        <value description="majorVersion">3</value>
+        <value description="minorVersion">0</value>
+        <value description="name">RHEV</value>
     </row>
     </table>
     <!--Product-END-->
-    <!--Cert-START-->
-    <table name="cert">
+    
+    
+    <!--HwArch-START-->
+    <table name="hw_arch">
+        <column>id</column>
+        <column>name</column>
+    <row>
+        <value description="id">1</value>
+        <value description="name">x86</value>
+    </row>
+    <row>
+        <value description="id">2</value>
+        <value description="name">x86_64</value>
+    </row>
+    <row>
+        <value description="id">3</value>
+        <value description="name">i386</value>
+    </row>
+    </table>
+    <!--HwArch-END-->
+    <!--HwMake-START-->
+    <table name="hw_make">
+        <column>id</column>
+        <column>name</column>
+    <row>
+        <value description="id">1</value>
+        <value description="name">testMake 1</value>
+    </row>
+    <row>
+        <value description="id">2</value>
+        <value description="name">testMake 2</value>
+    </row>
+    <row>
+        <value description="id">3</value>
+        <value description="name">testMake 3</value>
+    </row>
+    </table>
+    <!--HwMake-END-->
+    <!--HwModel-START-->
+    <table name="hw_model">
+        <column>id</column>
+        <column>name</column>
+    <row>
+        <value description="id">1</value>
+        <value description="name">testModel 1</value>
+    </row>
+    <row>
+        <value description="id">2</value>
+        <value description="name">testModel 2</value>
+    </row>
+    <row>
+        <value description="id">3</value>
+        <value description="name">testModel 3</value>
+    </row>
+    </table>
+    <!--HwModel-END-->
+    <!--HwSpec-START-->
+    <table name="hw_spec">
+        <column>id</column>
+        <column>name</column>
+        <column>url</column>
+    <row>
+        <value description="id">1</value>
+        <value description="name">testspec1</value>
+        <value description="url">http://www.test.com/testspc01</value>
+    </row>
+    <row>
+        <value description="id">2</value>
+        <value description="name">testspec2</value>
+        <value description="url">http://www.test.com/testspc02</value>
+    </row>
+    <row>
+        <value description="id">3</value>
+        <value description="name">testspec3</value>
+        <value description="url">http://www.test.com/testspc03</value>
+    </row>
+    </table>
+    <!--HwSpec-END-->
+    
+    <!--HwCert-START-->
+    <table name="hw_cert">
         <column>id</column>
         <column>name</column>
         <column>product_id</column>
         <column>show_public</column>
         <column>vendor_id</column>
-    <row>
-        <value description="id">-1</value>
-        <value description="name">RjVrHmAdGxRvZmExVqWwQlIvPePoJn</value>
-        <value description="product_id">-1</value>
-        <value description="show_public">0</value>
-        <value description="vendor_id">-1</value>
-    </row>
-    <row>
-        <value description="id">-2</value>
-        <value description="name">ImBbEbVbKoUtCjXaWsQtPrRkAtJoJt</value>
-        <value description="product_id">-2</value>
-        <value description="show_public">0</value>
-        <value description="vendor_id">-2</value>
-    </row>
-    <row>
-        <value description="id">-3</value>
-        <value description="name">MeWuRrMnIvJoCuCuXqXfYdMjHlQrTw</value>
-        <value description="product_id">-3</value>
-        <value description="show_public">0</value>
-        <value description="vendor_id">-3</value>
-    </row>
-    </table>
-    <!--Cert-END-->
-    <!--HwCert-START-->
-    <table name="hwcert">
-        <column>id</column>
         <column>arch_id</column>
         <column>make_id</column>
         <column>model_id</column>
         <column>spec_id</column>
     <row>
-    <value description="id">-1</value>
-        <value description="arch_id">-1</value>
-        <value description="make_id">-1</value>
-        <value description="model_id">-1</value>
-        <value description="spec_id">-1</value>
+        <value description="id">1</value>
+        <value description="name">Hardware Certification 1</value>
+        <value description="product_id">1</value>
+        <value description="show_public">0</value>
+        <value description="vendor_id">1</value>
+        <value description="arch_id">1</value>
+        <value description="make_id">1</value>
+        <value description="model_id">1</value>
+        <value description="spec_id">1</value>
     </row>
     <row>
-    <value description="id">-2</value>
-        <value description="arch_id">-2</value>
-        <value description="make_id">-2</value>
-        <value description="model_id">-2</value>
-        <value description="spec_id">-2</value>
+        <value description="id">2</value>
+        <value description="name">Hardware Certification 2</value>
+        <value description="product_id">2</value>
+        <value description="show_public">0</value>
+        <value description="vendor_id">2</value>
+        <value description="arch_id">2</value>
+        <value description="make_id">2</value>
+        <value description="model_id">2</value>
+        <value description="spec_id">2</value>
     </row>
     <row>
-    <value description="id">-3</value>
-        <value description="arch_id">-3</value>
-        <value description="make_id">-3</value>
-        <value description="model_id">-3</value>
-        <value description="spec_id">-3</value>
+        <value description="id">3</value>
+        <value description="name">Hardware Certification 3</value>
+        <value description="product_id">3</value>
+        <value description="show_public">0</value>
+        <value description="vendor_id">3</value>
+        <value description="arch_id">3</value>
+        <value description="make_id">3</value>
+        <value description="model_id">3</value>
+        <value description="spec_id">3</value>
     </row>
     </table>
     <!--HwCert-END-->
 </dataset>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
