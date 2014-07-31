@@ -42,7 +42,13 @@
     <display:column sortProperty="public" sortable="true" titleKey="hwCert.public">
         <input type="checkbox" disabled="disabled" <c:if test="${hwCertList.public}">checked="checked"</c:if>/>
     </display:column>
-
+	<display:column property="hwCert.product.name" sortable="true" titleKey="hwCert.product.name"/>
+	<display:column property="hwCert.model.name" sortable="true" titleKey="hwCert.model.name"/>
+	<display:column property="hwCert.arch.name" sortable="true" titleKey="hwCert.arch.name"/>
+	<display:column property="hwCert.make.name" sortable="true" titleKey="hwCert.make.name"/>
+	<display:column property="hwCert.vendor.name" sortable="true" titleKey="hwCert.vendor.name"/>
+	<display:column property="hwCert.spec.name" sortable="true" titleKey="hwCert.spec.name"/>
+	
     <display:setProperty name="paging.banner.item_name"><fmt:message key="hwCertList.hwCert"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="hwCertList.hwCerts"/></display:setProperty>
 

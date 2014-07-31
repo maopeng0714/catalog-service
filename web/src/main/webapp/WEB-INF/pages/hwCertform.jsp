@@ -27,7 +27,7 @@
         <form:input cssClass="form-control" path="name" id="name"  maxlength="30"/>
         <form:errors path="name" cssClass="help-block"/>
     </div>
-    <!-- todo: change this to read the identifier field from the other pojo -->
+    
     <form:select cssClass="form-control" path="product" items="productList" itemLabel="label" itemValue="value"/>
     <spring:bind path="hwCert.public">
     <div class="form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
@@ -37,15 +37,15 @@
         <form:errors path="public" cssClass="help-block"/>
     </div>
     <!-- todo: change this to read the identifier field from the other pojo -->
-    <form:select cssClass="form-control" path="vendor" items="vendorList" itemLabel="label" itemValue="value"/>
+    <form:select cssClass="form-control" path="vendor" items="vendorList" itemLabel="label" itemValue="value"/> 
     <!-- todo: change this to read the identifier field from the other pojo -->
-    <form:select cssClass="form-control" path="arch" items="archList" itemLabel="label" itemValue="value"/>
+    <form:select cssClass="form-control" path="arch" items="archList" itemLabel="label" itemValue="value"/> 
     <!-- todo: change this to read the identifier field from the other pojo -->
-    <form:select cssClass="form-control" path="make" items="makeList" itemLabel="label" itemValue="value"/>
+    <form:select cssClass="form-control" path="make" items="makeList" itemLabel="label" itemValue="value"/> 
     <!-- todo: change this to read the identifier field from the other pojo -->
-    <form:select cssClass="form-control" path="model" items="modelList" itemLabel="label" itemValue="value"/>
+   <form:select cssClass="form-control" path="model" items="modelList" itemLabel="label" itemValue="value"/> 
     <!-- todo: change this to read the identifier field from the other pojo -->
-    <form:select cssClass="form-control" path="spec" items="specList" itemLabel="label" itemValue="value"/>
+    <form:select cssClass="form-control" path="spec" items="specList" itemLabel="label" itemValue="value"/> 
 
     <div class="form-group">
         <button type="submit" class="btn btn-primary" name="save" onclick="bCancel=false">
