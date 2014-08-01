@@ -1,18 +1,16 @@
 package com.redhat.webapp.controller;
 
-import com.redhat.webapp.controller.BaseControllerTestCase;
-import com.redhat.model.Product;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import com.redhat.model.Product;
 
 public class ProductFormControllerTest extends BaseControllerTestCase {
     @Autowired
@@ -46,7 +44,7 @@ public class ProductFormControllerTest extends BaseControllerTestCase {
         product.setMinorVersion(307995428);
         product.setName("OhZfKeLjUgXfNgNnXqSnBeYwHnGvAx");
 
-        BindingResult errors = new DataBinder(product).getBindingResult();
+        final BindingResult errors = new DataBinder(product).getBindingResult();
         form.onSubmit(product, errors, request, new MockHttpServletResponse());
         assertFalse(errors.hasErrors());
         assertNotNull(request.getSession().getAttribute("successMessages"));
@@ -59,7 +57,7 @@ public class ProductFormControllerTest extends BaseControllerTestCase {
         product = new Product();
         product.setId(-2L);
 
-        BindingResult errors = new DataBinder(product).getBindingResult();
+        final BindingResult errors = new DataBinder(product).getBindingResult();
         form.onSubmit(product, errors, request, new MockHttpServletResponse());
 
         assertNotNull(request.getSession().getAttribute("successMessages"));

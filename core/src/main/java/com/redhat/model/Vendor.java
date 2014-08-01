@@ -35,6 +35,7 @@ public class Vendor extends BaseObject {
     private static final Logger LOGGER = LoggerFactory.getLogger(Vendor.class);
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
     @Column(unique = true, nullable = false, length = 30)
     @Field

@@ -35,6 +35,7 @@ public class Product extends BaseObject {
     private static final Logger LOGGER = LoggerFactory.getLogger(Product.class);
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
     @Column(unique = true, nullable = false, length = 30)
     @Field

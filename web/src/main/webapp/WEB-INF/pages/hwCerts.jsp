@@ -42,12 +42,12 @@
     <display:column sortProperty="public" sortable="true" titleKey="hwCert.public">
         <input type="checkbox" disabled="disabled" <c:if test="${hwCertList.public}">checked="checked"</c:if>/>
     </display:column>
-	<display:column property="hwCert.product.name" sortable="true" titleKey="hwCert.product.name"/>
-	<display:column property="hwCert.model.name" sortable="true" titleKey="hwCert.model.name"/>
-	<display:column property="hwCert.arch.name" sortable="true" titleKey="hwCert.arch.name"/>
-	<display:column property="hwCert.make.name" sortable="true" titleKey="hwCert.make.name"/>
-	<display:column property="hwCert.vendor.name" sortable="true" titleKey="hwCert.vendor.name"/>
-	<display:column property="hwCert.spec.name" sortable="true" titleKey="hwCert.spec.name"/>
+	<display:column property="product.name" sortable="true" titleKey="Product"/>
+	<display:column property="model.name" sortable="true" titleKey="Model"/>
+	<display:column property="arch.name" sortable="true" titleKey="Architecture"/>
+	<display:column property="make.name" sortable="true" titleKey="Make"/>
+	<display:column property="vendor.name" sortable="true" titleKey="Vendor"/>
+	<display:column property="spec.name" sortable="true" titleKey="Specification"/>
 	
     <display:setProperty name="paging.banner.item_name"><fmt:message key="hwCertList.hwCert"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="hwCertList.hwCerts"/></display:setProperty>

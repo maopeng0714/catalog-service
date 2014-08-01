@@ -27,8 +27,10 @@
         <form:input cssClass="form-control" path="name" id="name"  maxlength="30"/>
         <form:errors path="name" cssClass="help-block"/>
     </div>
-    
-    <form:select cssClass="form-control" path="product" items="productList" itemLabel="label" itemValue="value"/>
+    <form:select cssClass="form-control" path="product">
+    <form:option selected="selected" value="hwCert.product.id"/>  
+    <form:options items="${productList}" itemValue="id" itemLabel="name" />
+    </form:select>
     <spring:bind path="hwCert.public">
     <div class="form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
     </spring:bind>
@@ -37,16 +39,15 @@
         <form:errors path="public" cssClass="help-block"/>
     </div>
     <!-- todo: change this to read the identifier field from the other pojo -->
-    <form:select cssClass="form-control" path="vendor" items="vendorList" itemLabel="label" itemValue="value"/> 
+    <form:select cssClass="form-control" path="vendor" items="vendorList" itemLabel="vendor.name" itemValue="vendor.id"/> 
     <!-- todo: change this to read the identifier field from the other pojo -->
-    <form:select cssClass="form-control" path="arch" items="archList" itemLabel="label" itemValue="value"/> 
+    <form:select cssClass="form-control" path="arch" items="archList" itemLabel="arch.name" itemValue="arch.id"/> 
     <!-- todo: change this to read the identifier field from the other pojo -->
-    <form:select cssClass="form-control" path="make" items="makeList" itemLabel="label" itemValue="value"/> 
+    <form:select cssClass="form-control" path="make" items="makeList" itemLabel="make.name" itemValue="make.id"/> 
     <!-- todo: change this to read the identifier field from the other pojo -->
-   <form:select cssClass="form-control" path="model" items="modelList" itemLabel="label" itemValue="value"/> 
+    <form:select cssClass="form-control" path="model" items="modelList" itemLabel="model.name" itemValue="model.id"/> 
     <!-- todo: change this to read the identifier field from the other pojo -->
-    <form:select cssClass="form-control" path="spec" items="specList" itemLabel="label" itemValue="value"/> 
-
+    <form:select cssClass="form-control" path="spec" items="specList" itemLabel="spec.name" itemValue="spec.id"/> 
     <div class="form-group">
         <button type="submit" class="btn btn-primary" name="save" onclick="bCancel=false">
             <i class="icon-ok icon-white"></i> <fmt:message key="button.save"/>

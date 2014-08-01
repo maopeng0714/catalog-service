@@ -39,6 +39,7 @@ public class Cert extends BaseObject {
     private static final Logger LOGGER = LoggerFactory.getLogger(Cert.class);
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
     @Field
     @Column(unique = true, nullable = false, length = 30)

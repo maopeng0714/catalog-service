@@ -1,9 +1,5 @@
 package com.redhat.webapp.controller;
 
-import com.redhat.dao.SearchException;
-import com.redhat.service.GenericManager;
-import com.redhat.model.HwMake;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -12,6 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.redhat.dao.SearchException;
+import com.redhat.model.HwMake;
+import com.redhat.service.GenericManager;
 
 @Controller
 @RequestMapping("/hwMakes*")
@@ -23,13 +23,20 @@ public class HwMakeController {
         this.hwMakeManager = hwMakeManager;
     }
 
+    /**
+     * @return the hwMakeManager
+     */
+    public GenericManager<HwMake, Long> getHwMakeManager() {
+        return hwMakeManager;
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public Model handleRequest(@RequestParam(required = false, value = "q") String query)
-    throws Exception {
-        Model model = new ExtendedModelMap();
+            throws Exception {
+        final Model model = new ExtendedModelMap();
         try {
             model.addAttribute(hwMakeManager.search(query, HwMake.class));
-        } catch (SearchException se) {
+        } catch (final SearchException se) {
             model.addAttribute("searchError", se.getMessage());
             model.addAttribute(hwMakeManager.getAll());
         }
