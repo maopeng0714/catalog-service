@@ -1,21 +1,25 @@
 /*
- * HwCertDao.java
+ * HwCertManager.java
  *
  * This file is the exclusive property of RedHat.
  * Reproduction and Unauthorized use are forbidden.
  *
  * Copyright (C) 2014 RedHat. All rights reserved.
  */
-package com.redhat.dao;
+package com.redhat.service;
 
 import java.util.List;
+
+import javax.jws.WebService;
 
 import com.redhat.model.HwCert;
 
 /**
  *
  */
-public interface HwCertDao extends GenericDao<HwCert, Long> {
+@WebService
+public interface HwCertManager extends GenericManager<HwCert, Long> {
 
-    public List<HwCert> getCertsByModel(String modelName);
+    List<HwCert> getHwCertsByModel(String modelName);
+
 }

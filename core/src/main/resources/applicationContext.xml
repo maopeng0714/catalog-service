@@ -77,12 +77,8 @@
     
 
     <!--HwCertManager-START-->
-    <bean id="hwCertManager" class="com.redhat.service.impl.GenericManagerImpl">
-        <constructor-arg>
-            <bean class="com.redhat.dao.hibernate.GenericDaoHibernate">
-                <constructor-arg value="com.redhat.model.HwCert"/>
-            </bean>
-        </constructor-arg>
+    <bean id="hwCertManager" class="com.redhat.service.impl.HwCertManagerImpl">
+        <constructor-arg ref="hwCertDao" />         
     </bean>
     <!--HwCertManager-END-->
 

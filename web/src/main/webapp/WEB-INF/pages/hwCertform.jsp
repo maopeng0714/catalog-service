@@ -28,7 +28,7 @@
         <form:errors path="name" cssClass="help-block"/>
     </div>
     <form:select cssClass="form-control" path="product">
-    <form:option selected="selected" value="hwCert.product.id"/>  
+    <form:option selected="selected" value="product.id"/>  
     <form:options items="${productList}" itemValue="id" itemLabel="name" />
     </form:select>
     <spring:bind path="hwCert.public">

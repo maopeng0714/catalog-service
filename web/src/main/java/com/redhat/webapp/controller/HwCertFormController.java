@@ -24,11 +24,13 @@ import com.redhat.model.HwSpec;
 import com.redhat.model.Product;
 import com.redhat.model.Vendor;
 import com.redhat.service.GenericManager;
+import com.redhat.service.HwCertManager;
 
 @Controller
 @RequestMapping("/hwCertform*")
-public class HwCertFormController extends BaseFormController  {
-    private GenericManager<HwCert, Long> hwCertManager = null;
+public class HwCertFormController extends BaseFormController {
+    @Autowired
+    private HwCertManager hwCertManager = null;
     private GenericManager<Product, Long> productManager;
     private GenericManager<Vendor, Long> vendorManager;
     private GenericManager<HwModel, Long> modelManager;
@@ -36,22 +38,22 @@ public class HwCertFormController extends BaseFormController  {
     private GenericManager<HwSpec, Long> specManager;
     private GenericManager<HwArch, Long> archManager;
 
-
     public HwCertFormController() {
         setCancelView("redirect:hwCerts");
         setSuccessView("redirect:hwCerts");
     }
 
-
     /**
      * @param productManager the productManager to set
      */
     @Autowired
-    public void setProductManager(@Qualifier("productManager")  GenericManager<Product, Long> productManager) {
+    public void setProductManager(
+            @Qualifier("productManager") final GenericManager<Product, Long> productManager) {
         this.productManager = productManager;
     }
+
     @ModelAttribute("productList")
-    public List<Product> getProductList(){
+    public List<Product> getProductList() {
         return productManager.getAll();
     }
 
@@ -59,35 +61,41 @@ public class HwCertFormController extends BaseFormController  {
      * @param vendorManager the vendorManager to set
      */
     @Autowired
-    public void setVendorManager(@Qualifier("vendorManager") GenericManager<Vendor, Long> vendorManager) {
+    public void setVendorManager(
+            @Qualifier("vendorManager") final GenericManager<Vendor, Long> vendorManager) {
         this.vendorManager = vendorManager;
     }
+
     @ModelAttribute("vendorList")
-    public List<Vendor> getVendorList(){
+    public List<Vendor> getVendorList() {
         return vendorManager.getAll();
     }
-
 
     /**
      * @param modelManager the modelManager to set
      */
     @Autowired
-    public void setModelManager(@Qualifier("hwModelManager") GenericManager<HwModel, Long> modelManager) {
+    public void setModelManager(
+            @Qualifier("hwModelManager") final GenericManager<HwModel, Long> modelManager) {
         this.modelManager = modelManager;
     }
+
     @ModelAttribute("modelList")
-    public List<HwModel> getModelList(){
+    public List<HwModel> getModelList() {
         return modelManager.getAll();
     }
+
     /**
      * @param makeManager the makeManager to set
      */
     @Autowired
-    public void setMakeManager(@Qualifier("hwMakeManager")  GenericManager<HwMake, Long> makeManager) {
+    public void setMakeManager(
+            @Qualifier("hwMakeManager") final GenericManager<HwMake, Long> makeManager) {
         this.makeManager = makeManager;
     }
+
     @ModelAttribute("makeList")
-    public List<HwMake> getMakeList(){
+    public List<HwMake> getMakeList() {
         return makeManager.getAll();
     }
 
@@ -95,48 +103,51 @@ public class HwCertFormController extends BaseFormController  {
      * @param specManager the specManager to set
      */
     @Autowired
-    public void setSpecManager(@Qualifier("hwSpecManager") GenericManager<HwSpec, Long> specManager) {
+    public void setSpecManager(
+            @Qualifier("hwSpecManager") final GenericManager<HwSpec, Long> specManager) {
         this.specManager = specManager;
     }
+
     @ModelAttribute("specList")
-    public List<HwSpec> getSpecList(){
+    public List<HwSpec> getSpecList() {
         return specManager.getAll();
     }
+
     /**
      * @param archManager the archManager to set
      */
     @Autowired
-    public void setArchManager(@Qualifier("hwArchManager") GenericManager<HwArch, Long> archManager) {
+    public void setArchManager(
+            @Qualifier("hwArchManager") final GenericManager<HwArch, Long> archManager) {
         this.archManager = archManager;
     }
+
     @ModelAttribute("archList")
-    public List<HwArch> getArchList(){
+    public List<HwArch> getArchList() {
         return archManager.getAll();
     }
 
-
-
     @Autowired
-    public void setHwCertManager(@Qualifier("hwCertManager") GenericManager<HwCert, Long> hwCertManager) {
+    public void setHwCertManager(@Qualifier("hwCertManager") final HwCertManager hwCertManager) {
         this.hwCertManager = hwCertManager;
     }
+
     @ModelAttribute
     @RequestMapping(method = RequestMethod.GET)
-    protected HwCert showForm(HttpServletRequest request)
-            throws Exception {
+    protected HwCert showForm(final HttpServletRequest request) throws Exception {
         final String id = request.getParameter("id");
 
         if (!StringUtils.isBlank(id))
             return hwCertManager.get(new Long(id));
 
-
         return new HwCert();
     }
-    @RequestMapping(method = RequestMethod.POST)
+
+    @RequestMapping
     private ModelAndView getAllLists() {
         final ModelAndView mav = new ModelAndView("hwCertform");
 
-        mav.addObject("productList",getProductList());
+        mav.addObject("productList", getProductList());
         mav.addObject("vendorList", getVendorList());
         mav.addObject("archList", getArchList());
         mav.addObject("modelList", getModelList());
@@ -147,9 +158,8 @@ public class HwCertFormController extends BaseFormController  {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String onSubmit(HwCert hwCert, BindingResult errors, HttpServletRequest request,
-            HttpServletResponse response)
-                    throws Exception {
+    public String onSubmit(final HwCert hwCert, final BindingResult errors,
+            final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         if (request.getParameter("cancel") != null)
             return getCancelView();
 
@@ -174,8 +184,9 @@ public class HwCertFormController extends BaseFormController  {
             final String key = isNew ? "hwCert.added" : "hwCert.updated";
             saveMessage(request, getText(key, locale));
 
-            if (!isNew)
+            if (!isNew) {
                 success = "redirect:hwCertform?id=" + hwCert.getId();
+            }
         }
 
         return success;
