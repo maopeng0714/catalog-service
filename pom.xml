@@ -93,6 +93,27 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+       <repository>
+            <id>xmlrpc-delight-releases</id>
+            <url>http://www.dfki.uni-kl.de/artifactory/libs-releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+         <repository>
+            <id>apache-xmlrpc-repo</id>
+            <url>http://repo1.maven.org/maven2/org/apache/xmlrpc</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        
     </repositories>
 
     <pluginRepositories>
@@ -234,6 +255,21 @@
                     <groupId>javax.servlet</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>dfki.km.delight</groupId>
+             <artifactId>xmlrpc-delight</artifactId>
+            <version>${xmlrpc-delight.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlrpc</groupId>
+            <artifactId>xmlrpc-server</artifactId>
+            <version>${xmlrpc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlrpc</groupId>
+            <artifactId>xmlrpc-client</artifactId>
+            <version>${xmlrpc.version}</version>
         </dependency>
     </dependencies>
 
@@ -469,7 +505,9 @@
         <urlrewrite.version>3.1.0</urlrewrite.version>
         <velocity.version>1.7</velocity.version>
         <wro4j.version>1.7.5</wro4j.version>
-
+        <xmlrpc.version>3.1.3</xmlrpc.version>
+        <xmlrpc-delight.version>2.6.3</xmlrpc-delight.version>
+        
         <jdbc.validationQuery>SELECT 1 + 1</jdbc.validationQuery>
     </properties>
 

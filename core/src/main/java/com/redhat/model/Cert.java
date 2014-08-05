@@ -22,6 +22,8 @@ import org.hibernate.search.annotations.Indexed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.dfki.util.xmlrpc.annotation.XmlRpcBean;
+
 /**
  *
  */
@@ -31,6 +33,7 @@ import org.slf4j.LoggerFactory;
 @MappedSuperclass
 @Indexed
 @XmlRootElement
+@XmlRpcBean
 public class Cert extends BaseObject {
 
     /** */

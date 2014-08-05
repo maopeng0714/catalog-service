@@ -16,10 +16,10 @@ import com.redhat.model.HwCert;
 @Transactional
 public interface HwCertService {
     /**
-     * Retrieves a user by userId. An exception is thrown if user not found
+     * Retrieves a HwCert by certId.
      *
      * @param certId the identifier for the user
-     * @return User
+     * @return HwCert
      */
     @GET
     @Path("{id}")

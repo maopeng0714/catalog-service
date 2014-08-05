@@ -20,12 +20,15 @@ import org.hibernate.search.annotations.Indexed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.dfki.util.xmlrpc.annotation.XmlRpcBean;
+
 /**
  *
  */
 @Entity
 @Table(name = "vendor")
 @Indexed
+@XmlRpcBean
 public class Vendor extends BaseObject {
 
     /** */

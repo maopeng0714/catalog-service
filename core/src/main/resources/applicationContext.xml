@@ -13,6 +13,15 @@
 
     <!-- Add new DAOs here --> 
 
+    <bean id="rpcServer"
+        class="com.redhat.xmlrpc.server.XmlRpcServletServerFactoryBean">
+        <property name="serverProperties">
+            <map>
+                <entry key="enabledForExtensions" value="true"></entry>
+            </map>
+        </property>
+    </bean>
+    
     <!--VendorManager-START-->
     <bean id="vendorManager" class="com.redhat.service.impl.GenericManagerImpl">
         <constructor-arg>

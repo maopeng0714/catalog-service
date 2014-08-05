@@ -15,12 +15,15 @@ import javax.persistence.Table;
 
 import org.hibernate.search.annotations.Indexed;
 
+import de.dfki.util.xmlrpc.annotation.XmlRpcBean;
+
 /**
  *
  */
 @Entity
 @Table(name = "hw_cert")
 @Indexed
+@XmlRpcBean
 public class HwCert extends Cert {
 
     /** */
