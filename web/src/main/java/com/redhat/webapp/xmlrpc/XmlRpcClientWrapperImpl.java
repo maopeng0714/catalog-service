@@ -1,4 +1,4 @@
-package com.redhat.xmlrpc;
+package com.redhat.webapp.xmlrpc;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,7 +19,7 @@ import org.apache.xmlrpc.client.XmlRpcLiteHttpTransportFactory;
 public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
     protected Log log = LogFactory.getLog(XmlRpcClientWrapperImpl.class);
     /** Զ�̷����URL��ַ��Ĭ��http://localhost/xmlrpc */
-    private String url = "http://localhost/xmlrpc";
+    private String url = "http://localhost:8080/xmlrpc";
     /** �������ӳ��Դ���Ĭ��3�� */
     private int maxTry = 3;
     /** �������ӳ�ʱ��ʱ������λ�����룩��Ĭ��30000ms */
@@ -62,12 +62,12 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.focustech.extend.spring.xmlrpc.client.XmlRpcClientWrapper#execute(java.lang.String,
      * java.lang.Object[])
      */
     @Override
-    public Object execute(String serviceName, Object[] parameters) {
+    public Object execute(final String serviceName, final Object[] parameters) {
         Object mOutput = null;
         try {
             boolean run = false;
@@ -83,9 +83,8 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
                 }
                 Thread.sleep(1000);
             }
-            if (run == false) {
+            if (run == false)
                 throw new Exception("�ظ�����" + maxTry + "���κ�û�гɹ���", runE);
-            }
         } catch (final Exception e) {
             String param = "";
             for (int i = 0; null != parameters && i < parameters.length; i++) {
@@ -101,7 +100,7 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
         return url;
     }
 
-    public void setUrl(String url) {
+    public void setUrl(final String url) {
         this.url = url;
     }
 
@@ -109,7 +108,7 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
         return enabledForExtensions;
     }
 
-    public void setEnabledForExtensions(boolean enabledForExtensions) {
+    public void setEnabledForExtensions(final boolean enabledForExtensions) {
         this.enabledForExtensions = enabledForExtensions;
     }
 
@@ -117,7 +116,7 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
         return enabledForExceptions;
     }
 
-    public void setEnabledForExceptions(boolean enabledForExceptions) {
+    public void setEnabledForExceptions(final boolean enabledForExceptions) {
         this.enabledForExceptions = enabledForExceptions;
     }
 
@@ -125,7 +124,7 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
         return maxTry;
     }
 
-    public void setMaxTry(int maxTry) {
+    public void setMaxTry(final int maxTry) {
         this.maxTry = maxTry;
     }
 
@@ -133,7 +132,7 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
         return connectionTimeout;
     }
 
-    public void setConnectionTimeout(int connectionTimeout) {
+    public void setConnectionTimeout(final int connectionTimeout) {
         this.connectionTimeout = connectionTimeout;
     }
 
@@ -141,7 +140,7 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
         return contentLengthOptional;
     }
 
-    public void setContentLengthOptional(boolean contentLengthOptional) {
+    public void setContentLengthOptional(final boolean contentLengthOptional) {
         this.contentLengthOptional = contentLengthOptional;
     }
 
@@ -149,7 +148,7 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
         return basicEncoding;
     }
 
-    public void setBasicEncoding(String basicEncoding) {
+    public void setBasicEncoding(final String basicEncoding) {
         this.basicEncoding = basicEncoding;
     }
 
@@ -157,7 +156,7 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
         return basicPassword;
     }
 
-    public void setBasicPassword(String basicPassword) {
+    public void setBasicPassword(final String basicPassword) {
         this.basicPassword = basicPassword;
     }
 
@@ -165,7 +164,7 @@ public class XmlRpcClientWrapperImpl implements XmlRpcClientWrapper {
         return basicUserName;
     }
 
-    public void setBasicUserName(String basicUserName) {
+    public void setBasicUserName(final String basicUserName) {
         this.basicUserName = basicUserName;
     }
 }

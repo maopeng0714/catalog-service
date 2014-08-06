@@ -1,4 +1,4 @@
-package com.redhat.xmlrpc.filter;
+package com.redhat.webapp.filter;
 
 import java.io.IOException;
 

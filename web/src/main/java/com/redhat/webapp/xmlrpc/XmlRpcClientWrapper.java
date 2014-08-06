@@ -1,4 +1,4 @@
-package com.redhat.xmlrpc;
+package com.redhat.webapp.xmlrpc;
 
 /**
  * <li>xml rpc client d�İ�װ��</li>

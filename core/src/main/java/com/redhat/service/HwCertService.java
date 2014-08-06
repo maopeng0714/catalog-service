@@ -10,10 +10,13 @@ import javax.ws.rs.PathParam;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.redhat.model.HwCert;
+import com.redhat.xmlrpc.annotation.XmlRpcMethod;
+import com.redhat.xmlrpc.annotation.XmlRpcService;
 
 @WebService
 @Path("/hwcerts")
 @Transactional
+@XmlRpcService(useMethodAnnotation = true)
 public interface HwCertService {
     /**
      * Retrieves a HwCert by certId.
@@ -23,6 +26,7 @@ public interface HwCertService {
      */
     @GET
     @Path("{id}")
+    @XmlRpcMethod
     HwCert getHwCert(@PathParam("id") String certId);
 
     /**
@@ -33,6 +37,7 @@ public interface HwCertService {
      */
     @GET
     @Path("{model}")
+    @XmlRpcMethod
     List<HwCert> getHwCertsByModel(@PathParam("model") String model);
 
     /**
@@ -40,6 +45,7 @@ public interface HwCertService {
      * @return
      */
     @GET
+    @XmlRpcMethod
     public List<HwCert> getAllHwCerts();
     //
     // public List<Vendor> getAllVendors();
